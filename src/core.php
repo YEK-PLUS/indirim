@@ -8,6 +8,7 @@ define("DB_CONF",[
   "database_name" => "firsatim",
   "server" => "localhost",
   "username" => "root",
+  'charset' => 'utf8',
   "password" => ""]);
 
 define("DOMAIN","http://localhost:8080");
