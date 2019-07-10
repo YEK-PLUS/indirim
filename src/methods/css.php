@@ -10,14 +10,13 @@ $this->addMethod("css_lib",function(){
     endif;
   }
 });
-$this->addMethod("css_local",function($params = null){
-  $where = setParams($params,0);
+$this->addMethod("css_local",function($list){
   $css_file_list_dir = DIR."/asset/css";
   $css_file_list = scandir($css_file_list_dir);
   $css_file_list = array_diff($css_file_list,[".",".."]);
-  $css_file_list = array_diff($css_file_list,$where);
-  foreach ($css_file_list as $row) {
-    echo "\n".'<link rel="stylesheet" href="'.DOMAIN.'/asset/css/'.$row.'">';
+  // $css_file_list = array_diff($css_file_list,$where);
+  foreach ($list as $row) {
+    echo in_array($row,$css_file_list)?"\n".'<link rel="stylesheet" href="'.DOMAIN.'/asset/css/'.$row.'">':"";
   }
 });
 ?>
