@@ -10,14 +10,12 @@ $this->addMethod("js_lib",function(){
     endif;
   }
 });
-$this->addMethod("js_local",function($params = null){
-  $where = setParams($params,0);
+$this->addMethod("js_local",function($list){
   $js_file_list_dir = DIR."/asset/js";
   $js_file_list = scandir($js_file_list_dir);
   $js_file_list = array_diff($js_file_list,[".",".."]);
-  $js_file_list = array_diff($js_file_list,$where);
-  foreach ($js_file_list as $row) {
-    echo "\n".'<script src="'.DOMAIN.'/asset/js/'.$row.'"></script>';
+  foreach ($list as $row) {
+    echo in_array($row,$js_file_list)?"\n".'<script src="'.DOMAIN.'/asset/js/'.$row.'"></script>':"";
   }
 });
 ?>
