@@ -14,7 +14,6 @@ $this->addMethod("css_local",function($list){
   $css_file_list_dir = DIR."/asset/css";
   $css_file_list = scandir($css_file_list_dir);
   $css_file_list = array_diff($css_file_list,[".",".."]);
-  // $css_file_list = array_diff($css_file_list,$where);
   foreach ($list as $row) {
     echo in_array($row,$css_file_list)?"\n".'<link rel="stylesheet" href="'.DOMAIN.'/asset/css/'.$row.'">':"";
   }
